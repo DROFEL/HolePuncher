@@ -12,7 +12,13 @@ RUN apt-get update && \
     apt-get install -y git && \
     git clone https://github.com/DROFEL/HolePuncher.git .
 
-# Set the entry point to explicitly run the server script with Python3 and the specified port
-ENTRYPOINT ["python3", "./Server.py", 8080]
+# Specify the default port the server will run on
+ENV PORT 8080
+
+# Set the entry point to run the server script with Python3
+ENTRYPOINT ["python3", "./Server.py"]
+
+# Use CMD to set default parameters for ENTRYPOINT
+CMD ["$PORT"]
 
 
