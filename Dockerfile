@@ -16,5 +16,5 @@ RUN apt-get update && \
 ENV PORT 8080
 
 # Set the entry point to run the server script with the specified port
-ENTRYPOINT ["./Server.py", "$PORT"]
+ENTRYPOINT ["python3 ./Server.py", "$PORT"]
 
