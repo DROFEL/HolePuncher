@@ -10,8 +10,7 @@ RUN pip install twisted
 # Install git and clone the udp-hole-punching repository
 RUN apt-get update && \
     apt-get install -y git && \
-    git clone https://github.com/DROFEL/HolePuncher.git . && \
-    chmod +x Server.py
+    git clone https://github.com/DROFEL/HolePuncher.git .
 
 # Specify the default port the server will run on
 ENV PORT 8080
