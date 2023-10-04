@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 # Install Twisted and other required dependencies
 RUN pip install twisted
 
-# Clone the udp-hole-punching repository
+# Install git and clone the udp-hole-punching repository
 RUN apt-get update && \
     apt-get install -y git && \
     git clone https://github.com/DROFEL/HolePuncher.git . && \
@@ -16,7 +16,7 @@ RUN apt-get update && \
 # Specify the default port the server will run on
 ENV PORT 8080
 
+# Set the entry point to explicitly run the server script with Python3 and the specified port
+ENTRYPOINT ["python3", "./Server.py", "$PORT"]
 
-# Set the entry point to run the server script with the specified port
-ENTRYPOINT ["./Server.py", "$PORT"]
 
